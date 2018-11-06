@@ -1,4 +1,5 @@
 import figure.*;
+import tetris.gui.ActionHandler;
 import tetris.gui.GUI;
 import tetris.gui.ActionEvent;
 import tetris.gui.Block;
@@ -12,6 +13,7 @@ public class Game {
     private Block[] blocks = new Block[4];
     private GUI gui;
     private BaseFigure figure;
+    private FigureController figurecontroller;
 
     //Constructors
     public Game(GUI gui){
@@ -23,6 +25,58 @@ public class Game {
         block = new Block(x,y,color);
         gui.drawBlock(block);
 
+    }
+    //Sub Class Figure Controller
+    private class FigureController implements ActionHandler {
+
+        private void handleEvent(ActionEvent event) {
+            switch (event) {
+
+                    case MOVE_DOWN:
+                        //previousBlock = block;
+                        //updateGUI();
+                        //createBlock(block.x,block.y-1 ,block.color);
+                        figure.move(0,-1);
+                        updateGUI();
+                        //createFigure(blocks[0].x,blocks[0].y, blocks[0].color);
+                        break;
+                    case MOVE_LEFT:
+                        updateGUI();
+                        //createBlock(block.x-1,block.y ,block.color);
+                        figure.move(-1,0);
+                        updateGUI();
+                        //createFigure(blocks[0].x,blocks[0].y, blocks[0].color);
+                        break;
+                    case MOVE_RIGHT:
+                        updateGUI();
+                        //createBlock(block.x+1,block.y,block.color);
+                        figure.move(1,0);
+                        updateGUI();
+                        //createFigure(blocks[0].x,blocks[0].y, blocks[0].color);
+                        break;
+                    case ROTATE_LEFT:
+                        //updateGUI();
+                        figure.rotate(1);
+                        //createFigure(blocks[0].x,blocks[0].y, blocks[0].color);
+                        //gui.drawBlocks(blocks);//move to constructor Figure
+                        updateGUI();
+                        break;
+                    case ROTATE_RIGHT:
+                        //updateGUI();
+                        figure.rotate(-1);
+                        //createFigure(blocks[0].x,blocks[0].y, blocks[0].color);
+                        //gui.drawBlocks(blocks);//move to constructor Figure
+                        updateGUI();
+                        break;
+                    case DROP:
+                        createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!!
+                        updateGUI();
+                        break;
+                    default:
+                        break;
+                }
+            //updateGUI();//laut korrektion updategui hier.
+        }
     }
     private void createFigure(int x, int y, int color){
 
@@ -74,7 +128,7 @@ public class Game {
         //gui.drawBlocks(blocks);
 
     }
-    private void handleEvent(ActionEvent event) {
+    /*private void handleEvent(ActionEvent event) {
         switch (event) {
 
             case MOVE_DOWN:
@@ -121,12 +175,13 @@ public class Game {
                 break;
         }
         //updateGUI();//laut korrektion updategui hier.
-    }
+    }*/
     public void start() {
         createFigure(5,18,3);
+        figurecontroller = new FigureController();
         while(true){
             ActionEvent event = gui.waitEvent();
-            handleEvent(event);
+            figurecontroller.handleEvent(event);
         }
     }
     private void updateGUI(){
