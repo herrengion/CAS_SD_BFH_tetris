@@ -27,7 +27,7 @@ public class Game {
 
     }
     //Sub Class Figure Controller
-    private class FigureController implements ActionHandler {
+    private class FigureController{ //TODO implements ActionHandler {
 
         private void handleEvent(ActionEvent event) {
             switch (event) {
