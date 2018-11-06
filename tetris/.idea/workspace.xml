@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5039a22-2d55-4260-99d5-b1a3ac8accaf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/Figure (axxiv's conflicted copy 2018-10-30).class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game (axxiv's conflicted copy 2018-10-30).class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/BaseFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/BaseFigure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -99,12 +96,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="144" />
+          <entry key="java" value="374" />
+          <entry key="txt" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="144" />
+          <entry key="JAVA" value="374" />
+          <entry key="PLAIN_TEXT" value="64" />
         </counts>
       </usages-collector>
     </session>
@@ -114,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+            <state relative-caret-position="346">
+              <caret line="213" column="14" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -248,7 +247,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -363,12 +362,27 @@
       <workItem from="1541432877707" duration="1958000" />
       <workItem from="1541451862437" duration="8638000" />
       <workItem from="1541489080341" duration="6184000" />
-      <workItem from="1541500796406" duration="788000" />
+      <workItem from="1541500796406" duration="1836000" />
     </task>
+    <task id="LOCAL-00001" summary="Start Version 4 (Interface &amp; Subclass)">
+      <created>1541501752891</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541501752891</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Start Version 4 (Interface &amp; Subclass)&#10;TODO: implement interface">
+      <created>1541501961101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541501961101</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71596000" />
+    <option name="totallyTimeSpent" value="72644000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -380,10 +394,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30201343" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.047156725" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -392,7 +406,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48322147" visible="true" weight="0.3134752" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48322147" weight="0.312769" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49463087" weight="0.40028694" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -401,7 +415,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986577" weight="0.32624114" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53176796" side_tool="true" weight="0.35744682" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.35460994" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.3543759" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -448,6 +462,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Start Version 4 (Interface &amp; Subclass)" />
+    <MESSAGE value="Start Version 4 (Interface &amp; Subclass)&#10;TODO: implement interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start Version 4 (Interface &amp; Subclass)&#10;TODO: implement interface" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -608,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+        <state relative-caret-position="346">
+          <caret line="213" column="14" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

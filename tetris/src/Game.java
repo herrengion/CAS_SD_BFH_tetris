@@ -27,10 +27,41 @@ public class Game {
 
     }
     //Sub Class Figure Controller
-    private class FigureController{ //TODO implements ActionHandler {
+    private class FigureController implements ActionHandler {
 
-        private void handleEvent(ActionEvent event) {
-            switch (event) {
+        //public void handleEvent(ActionEvent event) {
+
+            public void moveDown(){
+                figure.move(0,-1);
+                updateGUI();
+            }
+
+            public void moveLeft(){
+                figure.move(-1,0);
+                updateGUI();
+            }
+
+            public void moveRight(){
+                figure.move(1,0);
+                updateGUI();
+            }
+
+            public void rotateLeft(){
+                figure.rotate(-1);
+                updateGUI();
+            }
+
+            public void rotateRight(){
+                figure.rotate(1);
+                updateGUI();
+            }
+
+            public void drop(){
+                createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!!
+                updateGUI();
+            }
+
+            /*switch (event) {
 
                     case MOVE_DOWN:
                         //previousBlock = block;
@@ -76,7 +107,7 @@ public class Game {
                         break;
                 }
             //updateGUI();//laut korrektion updategui hier.
-        }
+        }*/
     }
     private void createFigure(int x, int y, int color){
 
@@ -179,10 +210,11 @@ public class Game {
     public void start() {
         createFigure(5,18,3);
         figurecontroller = new FigureController();
-        while(true){
+        /*while(true){
             ActionEvent event = gui.waitEvent();
-            figurecontroller.handleEvent(event);
-        }
+            //figurecontroller.handleEvent(event);
+        }*/
+        gui.setActionHandler(figurecontroller);
     }
     private void updateGUI(){
         gui.clear();
