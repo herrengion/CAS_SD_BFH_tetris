@@ -3,6 +3,7 @@ import tetris.gui.Block;
 
 public abstract class BaseFigure {
     //Fields
+    protected String figureName = new String();
     protected final Block[] blocks = new Block[4];
         //Block colors
         static final int RED = 1;
@@ -12,8 +13,17 @@ public abstract class BaseFigure {
         static final int GREEN = 5;
         static final int GREY = 6;
     //Constructors
-    public BaseFigure(){}
+     public BaseFigure(){
+      //System.out.println(this.toString());
+         //System.out.println(this.hashCode());
+         if(this.hashCode()!=8) {
+             System.out.println(getClass().getSimpleName());
+         }
+    }
     //Methods
+    public String toString(){
+        return figureName;
+    }
     public Block[] getBlocks(){
         return blocks;
     }
@@ -34,4 +44,5 @@ public abstract class BaseFigure {
             block.y = cy - d * dx;
         }
     }
+    public int hashCode(){return 13;}
 }

@@ -15,7 +15,9 @@ public class Game {
     private Block[] blocks = new Block[4];
     private GUI gui;
     private BaseFigure figure;
+    private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
+    //private Boolean isFirstIteration = true;
 
     //Constructors
     public Game(GUI gui){
@@ -30,6 +32,7 @@ public class Game {
 
         //Field variable
         Double randomNum = 7*Math.random();
+
 
         switch (randomNum.intValue()){
             case 0:
@@ -56,6 +59,10 @@ public class Game {
         }
         blocks = figure.getBlocks();
         updateGUI();
+        //System.out.println(figure.toString());
+        if(previousFigure.hashCode()==figure.hashCode()/*&&!isFirstIteration*/){System.out.println("Same Figure as previous one");}
+        //isFirstIteration = false;
+        previousFigure = figure;
     }
     public void start() {
         createFigure(5,18,3);
@@ -78,26 +85,28 @@ public class Game {
 
         //public void handleEvent(ActionEvent event) {
 
+        //check w/ @Override, if everything ok
+        @Override
         public void moveDown(){
             figure.move(0,-1);
             updateGUI();
         }
-
+        @Override
         public void moveLeft(){
             figure.move(-1,0);
             updateGUI();
         }
-
+        @Override
         public void moveRight(){
             figure.move(1,0);
             updateGUI();
         }
-
+        @Override
         public void rotateLeft(){
             figure.rotate(-1);
             updateGUI();
         }
-
+        @Override
         public void rotateRight(){
             figure.rotate(1);
             updateGUI();

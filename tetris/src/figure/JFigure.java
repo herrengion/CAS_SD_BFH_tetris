@@ -8,6 +8,8 @@ public class JFigure extends BaseFigure {
     //Constructor
     public JFigure(int x, int y){
         super();
+        figureName = "JFigure";
+        //System.out.println(this.toString());
         blocks[0] = new Block(x, y, RED);
         blocks[1] = new Block(x, y-1, RED);
         blocks[2] = new Block(x, y-2, RED);
@@ -18,4 +20,6 @@ public class JFigure extends BaseFigure {
 
     }
     //Methods: adapt rotate()
+    public int hashCode(){return 1;}
+
 }

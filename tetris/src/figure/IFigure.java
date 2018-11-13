@@ -8,6 +8,8 @@ public class IFigure extends BaseFigure {
     //Constructor
     public IFigure(int x, int y){
         super();
+        figureName = "IFigure";
+        //System.out.println(this.toString());
         blocks[0] = new Block(x, y, YELLOW);
         blocks[1] = new Block(x - 1, y, YELLOW);
         blocks[2] = new Block(x + 1, y, YELLOW);
@@ -17,4 +19,5 @@ public class IFigure extends BaseFigure {
         }*/
     }
     //Methods
+    public int hashCode(){return 0;}
 }

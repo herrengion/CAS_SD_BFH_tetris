@@ -8,6 +8,8 @@ public class OFigure extends BaseFigure {
     //Constructor
     public OFigure(int x, int y) {
         super();
+        figureName = "OFigure";
+        //System.out.println(this.toString());
         blocks[0] = new Block(x, y, GREY);
         blocks[1] = new Block(x + 1, y, GREY);
         blocks[2] = new Block(x, y - 1, GREY);
@@ -18,4 +20,5 @@ public class OFigure extends BaseFigure {
     @Override
     public void rotate(int d) {
     }
+    public int hashCode(){return 3;}
 }

@@ -8,6 +8,8 @@ public class TFigure extends BaseFigure {
     //Constructor
     public TFigure(int x, int y){
         super();
+        figureName = "TFigure";
+        //System.out.println(this.toString());
         blocks[0] = new Block(x, y, GREEN);
         blocks[1] = new Block(x+1, y, GREEN);
         blocks[2] = new Block(x+2, y, GREEN);
@@ -26,4 +28,6 @@ public class TFigure extends BaseFigure {
             block.y = cy - d * dx;
         }
     }
+    public int hashCode(){return 5;}
+
 }
