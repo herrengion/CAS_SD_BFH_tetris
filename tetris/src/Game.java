@@ -13,10 +13,12 @@ public class Game {
     //Fields
     private Block block;
     private Block[] blocks = new Block[4];
+    private Block[] previousBlocks = new Block[4];
     private GUI gui;
     private BaseFigure figure;
     private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
+
     //private Boolean isFirstIteration = true;
 
     //Constructors
@@ -82,41 +84,98 @@ public class Game {
 
     //Sub Classes
     private class FigureController implements ActionHandler {
-
+        //Fields
+        Field field = new Field(Tetris.width, Tetris.height);
         //public void handleEvent(ActionEvent event) {
 
         //check w/ @Override, if everything ok
         @Override
         public void moveDown(){
             figure.move(0,-1);
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             updateGUI();
         }
         @Override
         public void moveLeft(){
             figure.move(-1,0);
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             updateGUI();
+            System.out.println("moveleft() Position x: "+blocks[0].x+" y: "+blocks[0].y);
         }
         @Override
         public void moveRight(){
             figure.move(1,0);
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             updateGUI();
+            System.out.println("moveRight() Position x: "+blocks[0].x+" y: "+blocks[0].y);
+
         }
         @Override
         public void rotateLeft(){
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
             figure.rotate(-1);
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             updateGUI();
         }
         @Override
         public void rotateRight(){
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             figure.rotate(1);
             updateGUI();
         }
 
         public void drop(){
+            for(int i=0;i<4;i++){
+                previousBlocks[i]=blocks[i];
+            }
+            try {
+                field.detectCollision(blocks);
+            }
+            catch (CollisionException e){
+                System.err.println("Error: "+ e);
+            }
             createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!!
             updateGUI();
         }
-
     }
 
 }

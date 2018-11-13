@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5039a22-2d55-4260-99d5-b1a3ac8accaf" name="Default Changelist" comment="Version 4 (Interface &amp; Subclass)&#10;Added hashCode() with previousFigure variable, Console print when&#10;currentFigure == previousFigure&#10;Added Class DummyFigure&#10;Added variable figureName">
-      <change afterPath="$PROJECT_DIR$/src/figure/DummyFigure.java" afterDir="false" />
+    <list default="true" id="b5039a22-2d55-4260-99d5-b1a3ac8accaf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/figure/CollisionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/figure/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/BaseFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/BaseFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/IFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/IFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/JFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/JFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/LFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/LFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/OFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/OFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/SFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/SFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/TFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/TFigure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/figure/ZFigure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/figure/ZFigure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/BaseFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/BaseFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/IFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/IFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/JFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/JFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/LFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/LFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/OFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/OFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/SFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/SFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/TFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/TFigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/ZFigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/ZFigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tetris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tetris.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,39 +105,43 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1515" />
+          <entry key="java" value="2609" />
           <entry key="txt" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1515" />
+          <entry key="JAVA" value="2609" />
           <entry key="PLAIN_TEXT" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="8" />
-          <entry key="java" value="12" />
+          <entry key="java" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="15" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+            <state relative-caret-position="64">
+              <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="method#createFigure#0;class#Game#0" />
+                <element signature="method#start#0;class#Game#0" />
                 <element signature="method#updateGUI#0;class#Game#0" />
                 <element signature="method#createBlock#0;class#Game#0" />
               </folding>
@@ -159,16 +149,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/BaseFigure.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/figure/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="183">
+              <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
               <folding>
-                <element signature="e#716#717#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
-                <element signature="e#781#782#0" expanded="true" />
-                <element signature="e#810#811#0" expanded="true" />
+                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#329#330#0" expanded="true" />
+                <element signature="e#358#359#0" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/figure/CollisionException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <folding>
+                <element signature="e#146#147#0" expanded="true" />
+                <element signature="e#172#173#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,75 +180,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tetris.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/IFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/DummyFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="51">
+              <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
               <folding>
-                <element signature="e#106#107#0" expanded="true" />
-                <element signature="e#127#128#0" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#570#571#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/JFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/LFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/OFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/SFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/figure/ZFigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -274,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/Figure.java" />
         <option value="$PROJECT_DIR$/src/BaseFigure.java" />
         <option value="$PROJECT_DIR$/src/figure/FigureEnum.java" />
-        <option value="$PROJECT_DIR$/src/Tetris.java" />
         <option value="$PROJECT_DIR$/src/figure/ColorCode.java" />
         <option value="$PROJECT_DIR$/src/figure/LFigure.java" />
         <option value="$PROJECT_DIR$/src/figure/OFigure.java" />
@@ -285,7 +226,10 @@
         <option value="$PROJECT_DIR$/src/figure/IFigure.java" />
         <option value="$PROJECT_DIR$/src/figure/DummyFigure.java" />
         <option value="$PROJECT_DIR$/src/figure/BaseFigure.java" />
+        <option value="$PROJECT_DIR$/src/Tetris.java" />
+        <option value="$PROJECT_DIR$/src/figure/CollisionException.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/figure/Field.java" />
       </list>
     </option>
   </component>
@@ -297,7 +241,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="910" />
+    <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -350,8 +294,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542102485078" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542122453912" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GUI_test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -426,7 +370,7 @@
       <workItem from="1541730526775" duration="547000" />
       <workItem from="1541731721602" duration="167000" />
       <workItem from="1541779710227" duration="1768000" />
-      <workItem from="1542094264730" duration="7041000" />
+      <workItem from="1542094264730" duration="16041000" />
     </task>
     <task id="LOCAL-00001" summary="Start Version 4 (Interface &amp; Subclass)">
       <created>1541501752891</created>
@@ -463,11 +407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541533077908</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Version 4 (Interface &amp; Subclass)&#10;Added hashCode() with previousFigure variable, Console print when&#10;currentFigure == previousFigure&#10;Added Class DummyFigure&#10;Added variable figureName">
+      <created>1542102501984</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542102501984</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89092000" />
+    <option name="totallyTimeSpent" value="98092000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -482,7 +433,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.10469799" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11409396" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -491,7 +442,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3248227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48322147" visible="true" weight="0.30921987" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48322147" visible="true" weight="0.3106383" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49463087" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -500,7 +451,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986577" weight="0.32624114" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53176796" side_tool="true" weight="0.35744682" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.34893617" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.34468085" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -512,7 +463,7 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.10469799" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23578364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -521,7 +472,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3248227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48322147" visible="true" weight="0.30921987" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48322147" visible="true" weight="0.31133428" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49463087" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -530,7 +481,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986577" weight="0.32624114" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53176796" side_tool="true" weight="0.35744682" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.34893617" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.46823204" weight="0.348637" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -664,13 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tetris.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/figure/LFigure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -717,10 +661,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tetris.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+          <folding>
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/figure/BaseFigure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="51">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding>
             <element signature="e#716#717#0" expanded="true" />
             <element signature="e#749#750#0" expanded="true" />
@@ -732,12 +689,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        <state relative-caret-position="64">
+          <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="method#createFigure#0;class#Game#0" />
+            <element signature="method#start#0;class#Game#0" />
             <element signature="method#updateGUI#0;class#Game#0" />
             <element signature="method#createBlock#0;class#Game#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/figure/CollisionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#172#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/figure/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+          <folding>
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
           </folding>
         </state>
       </provider>

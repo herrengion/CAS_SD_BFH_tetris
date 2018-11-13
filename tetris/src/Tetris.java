@@ -1,9 +1,9 @@
 import tetris.gui.GUI;
 
 public class Tetris {
-    //Fields
-    private static int height = 19;
-    private static int width = 9;
+    //Fields (used to be static, public due to exception handling)
+    public static int height = 19;
+    public static int width = 9;
     //Constructors
     public Tetris(){
         //empty
@@ -15,6 +15,13 @@ public class Tetris {
         GUI gui = new GUI(width,height);
         Game game = new Game(gui);
         game.start();
+    }
+    //other methods
+    public int getHeight(){
+        return height;
+    }
+    public int getWidth(){
+        return width;
     }
 }
 
