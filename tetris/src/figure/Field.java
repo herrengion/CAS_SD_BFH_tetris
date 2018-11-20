@@ -22,13 +22,13 @@ public class Field extends Object {
     }
 
     public void detectCollision(Block[] blocks) throws CollisionException{
-                for(Block block : blocks) {
-                    if (block.x == this.getWidth() || block.x == 0) {
-                        throw new CollisionException("horizontal limit");
+                for(int i=0 ; i<4 ; i++) {
+                    if (blocks[i].x == this.getWidth() || blocks[i].x < 0) {
+                        throw new CollisionException("limit reached", false);
                     }
-                    if (block.y < this.getHeight()) {
+                    if (blocks[i].y < 0 || blocks[i].y > this.getHeight()){
+                        throw new CollisionException("limit reached", true);
                     }
-                    throw new CollisionException("vertical limit");
-                    }
+                }
     }
 }
