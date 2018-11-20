@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5039a22-2d55-4260-99d5-b1a3ac8accaf" name="Default Changelist" comment="Version 5:&#10;Not yet complete&#10;Exceptions introduced, TODO: CollisionExeption">
+    <list default="true" id="b5039a22-2d55-4260-99d5-b1a3ac8accaf" name="Default Changelist" comment="Version 5:&#10;complete&#10;Exceptions introduced, TODO: reduce overload on field.detectCollision()&#10;(redundant)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tetris/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tetris/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/CollisionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/CollisionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/figure/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/figure/Field.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,13 +103,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="2680" />
-          <entry key="txt" value="356" />
+          <entry key="txt" value="436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="2680" />
-          <entry key="PLAIN_TEXT" value="356" />
+          <entry key="PLAIN_TEXT" value="436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -428,7 +424,7 @@
       <workItem from="1542293838063" duration="753000" />
       <workItem from="1542358572554" duration="4744000" />
       <workItem from="1542371361673" duration="7579000" />
-      <workItem from="1542699179456" duration="901000" />
+      <workItem from="1542699179456" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="Start Version 4 (Interface &amp; Subclass)">
       <created>1541501752891</created>
@@ -493,11 +489,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542122612371</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Version 5:&#10;complete&#10;Exceptions introduced, TODO: reduce overload on field.detectCollision()&#10;(redundant)">
+      <created>1542700261873</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542700261873</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112264000" />
+    <option name="totallyTimeSpent" value="112776000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -510,9 +513,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.119463086" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119463086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -526,7 +528,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32907802" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986577" weight="0.32624114" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53176796" side_tool="true" weight="0.35744682" />
@@ -585,7 +587,8 @@
     <MESSAGE value="Version 4 (Interface &amp; Subclass)&#10;interface implemented&#10;Tidy Code" />
     <MESSAGE value="Version 4 (Interface &amp; Subclass)&#10;Added hashCode() with previousFigure variable, Console print when&#10;currentFigure == previousFigure&#10;Added Class DummyFigure&#10;Added variable figureName" />
     <MESSAGE value="Version 5:&#10;Not yet complete&#10;Exceptions introduced, TODO: CollisionExeption" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 5:&#10;Not yet complete&#10;Exceptions introduced, TODO: CollisionExeption" />
+    <MESSAGE value="Version 5:&#10;complete&#10;Exceptions introduced, TODO: reduce overload on field.detectCollision()&#10;(redundant)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 5:&#10;complete&#10;Exceptions introduced, TODO: reduce overload on field.detectCollision()&#10;(redundant)" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
