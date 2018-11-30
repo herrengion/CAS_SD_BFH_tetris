@@ -30,17 +30,17 @@ public class Field extends Object {
     public void detectCollision(Block[] blocks) throws CollisionException{
                 for(int i=0 ; i<4 ; i++) {
                     if (blocks[i].x == this.getWidth() || blocks[i].x < 0) {
-                        //throw new CollisionException("limit reached", false);
-                        throw new CollisionException("limit reached");
+                        throw new CollisionException("Horizontal limit reached");
                     }
                     if (blocks[i].y < 0 || blocks[i].y > this.getHeight()){
-                        //throw new CollisionException("limit reached", true);
-                        throw new CollisionException("limit reached");
+                        throw new CollisionException("Vertical limit reached");
                     }
                     for(int j=0; j<this.blocks.toArray().length; j++){
+                        if((blocks[i].y == this.blocks.get(j).y && blocks[i].x == this.blocks.get(j).x) && blocks[i].y > this.getHeight()-8) {
+                            throw new CollisionException("Game over");
+                        }
                         if(blocks[i].y == this.blocks.get(j).y && blocks[i].x == this.blocks.get(j).x) {
-                            //throw new CollisionException("Another Brick in the Wall", true);}
-                            throw new CollisionException("limit reached");
+                            throw new CollisionException("Other Block limit reached");
                         }
                     }
                 }

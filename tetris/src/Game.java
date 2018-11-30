@@ -17,7 +17,7 @@ public class Game {
     private BaseFigure figure;
     private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
-    boolean atStart;
+    //private boolean atStart;
     private List<Block> previousBlocks = new ArrayList<>();
     //Fields
     Field field = new Field(Tetris.width, Tetris.height);
@@ -33,65 +33,81 @@ public class Game {
 
     //Methods
 
-    private void createFigure(int x, int y, int color){
+    private void createFigure(int x, int y, int color) /*throws CollisionException*/{
 
         //Field variable
         Double randomNum = 7*Math.random();
 
 
-        switch (randomNum.intValue()){
-            case 0:
-                figure = new IFigure((gui.getFieldWidth()>>2)+1, gui.getFieldHeight()-2);
-                break;
-            case 1:
-                figure = new JFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
-            case 2:
-                figure = new LFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
-            case 3:
-                figure = new OFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
-            case 4:
-                figure = new SFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
-            case 5:
-                figure = new TFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
-            case 6:
-                figure = new ZFigure(gui.getFieldWidth()/2, gui.getFieldHeight()-2);
-                break;
+        try {
+            switch (randomNum.intValue()) {
+                case 0:
+                    figure = new IFigure((gui.getFieldWidth() >> 2) + 1, gui.getFieldHeight() - 2);
+                    break;
+                case 1:
+                    figure = new JFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+                case 2:
+                    figure = new LFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+                case 3:
+                    figure = new OFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+                case 4:
+                    figure = new SFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+                case 5:
+                    figure = new TFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+                case 6:
+                    figure = new ZFigure(gui.getFieldWidth() / 2, gui.getFieldHeight() - 2);
+                    break;
+            }
+            blocks = figure.getBlocks();
+            updateGUI();
+            //System.out.println(figure.toString());
+            if (previousFigure.hashCode() == figure.hashCode()/*&&!isFirstIteration*/) {
+                System.out.println("Same Figure as previous one");
+            }
+            //isFirstIteration = false;
+            previousFigure = figure;
+            //atStart = false;
+            field.detectCollision(blocks);
         }
-        blocks = figure.getBlocks();
-        updateGUI();
-        //System.out.println(figure.toString());
-        if(previousFigure.hashCode()==figure.hashCode()/*&&!isFirstIteration*/){System.out.println("Same Figure as previous one");}
-        //isFirstIteration = false;
-        previousFigure = figure;
-        //atStart = false;
+        catch (CollisionException e){
+            System.out.println("End of Game");
+            stop();
+        }
     }
 
     //New in Version 6
     private void figureLanded(){
         field.addBlocks(blocks);
-        gui.drawBlocks(field.getBlocks());
+        //gui.drawBlocks(field.getBlocks());
         createFigure(field.getWidth()/2,field.getHeight(),3);
         updateGUI();
     }
 
-    public void start() {
+    public void start(){
         createFigure(5,18,3);
         figurecontroller = new FigureController();
         gui.setActionHandler(figurecontroller);
-        atStart = true;
+        //atStart = true;
         //figureLanded();
+    }
+    public void stop(){
+        //gui.clear();
+        //gui.drawBlocks(previousBlocks);
+        updateGUI();
+        gui.setActionHandler(null);
+        field.removeAllBlocks();
     }
     private void updateGUI(){
         gui.clear();
-        previousBlocks = field.getBlocks();
         gui.drawBlocks(previousBlocks);
         gui.drawBlocks(blocks);
-        atStart = false;
+        previousBlocks = field.getBlocks();
+        //atStart = false;
     }
     private void createBlock(int x, int y, int color) {
         block = new Block(x,y,color);
@@ -186,6 +202,7 @@ public class Game {
                     field.detectCollision(blocks);
                 }
                 catch (CollisionException e) {
+                    System.err.println("Error: "+ e);
                     figure.move(0, 1);
                     figureLanded();
                     break;
@@ -202,7 +219,6 @@ public class Game {
 
                 //createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!
             updateGUI();
-
         }
             //updateGUI();
         }
