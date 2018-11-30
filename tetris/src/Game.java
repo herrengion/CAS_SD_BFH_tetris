@@ -4,7 +4,7 @@ import tetris.gui.GUI;
 import tetris.gui.ActionEvent;
 import tetris.gui.Block;
 import java.lang.Math;
-
+import java.util.*;
 
 
 public class Game {
@@ -13,11 +13,14 @@ public class Game {
     //Fields
     private Block block;
     private Block[] blocks = new Block[4];
-    private Block[] previousBlocks = new Block[4];
     private GUI gui;
     private BaseFigure figure;
     private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
+    boolean atStart;
+    private List<Block> previousBlocks = new ArrayList<>();
+    //Fields
+    Field field = new Field(Tetris.width, Tetris.height);
 
     //private Boolean isFirstIteration = true;
 
@@ -65,15 +68,30 @@ public class Game {
         if(previousFigure.hashCode()==figure.hashCode()/*&&!isFirstIteration*/){System.out.println("Same Figure as previous one");}
         //isFirstIteration = false;
         previousFigure = figure;
+        //atStart = false;
     }
+
+    //New in Version 6
+    private void figureLanded(){
+        field.addBlocks(blocks);
+        gui.drawBlocks(field.getBlocks());
+        createFigure(field.getWidth()/2,field.getHeight(),3);
+        updateGUI();
+    }
+
     public void start() {
         createFigure(5,18,3);
         figurecontroller = new FigureController();
         gui.setActionHandler(figurecontroller);
+        atStart = true;
+        //figureLanded();
     }
     private void updateGUI(){
         gui.clear();
+        previousBlocks = field.getBlocks();
+        gui.drawBlocks(previousBlocks);
         gui.drawBlocks(blocks);
+        atStart = false;
     }
     private void createBlock(int x, int y, int color) {
         block = new Block(x,y,color);
@@ -82,10 +100,11 @@ public class Game {
     }
 
 
+
     //Sub Classes
     private class FigureController implements ActionHandler {
         //Fields
-        Field field = new Field(Tetris.width, Tetris.height);
+        //Field field = new Field(Tetris.width, Tetris.height);
         //public void handleEvent(ActionEvent event) {
 
         //check w/ @Override, if everything ok
@@ -97,9 +116,12 @@ public class Game {
             }
             catch (CollisionException e){
                 System.err.println("Error: "+ e);
-                if(e.isMovementVertical){
+                figure.move(0,1);
+                figureLanded();
+                /*if(e.isMovementVertical){
                     figure.move(0,1);
-                }
+                    figureLanded();
+                }*/
             }
             updateGUI();
             System.out.println("moveleft() Position x: "+blocks[0].x+" y: "+blocks[0].y);
@@ -157,24 +179,33 @@ public class Game {
         }
 
         public void drop(){
-            boolean isFigureAtBottom = false;
-            while(isFigureAtBottom == false) {
-                try {
+            //boolean isFigureAtBottom = false;
+            //while(isFigureAtBottom == false) {
+            while(true){
+            try {
                     field.detectCollision(blocks);
-                } catch (CollisionException e) {
-                    System.err.println("Error: " + e);
+                }
+                catch (CollisionException e) {
+                    figure.move(0, 1);
+                    figureLanded();
+                    break;
+                    /*System.err.println("Error: " + e);
                     if(e.isMovementVertical){
                         isFigureAtBottom = true;
                         figure.move(0, 1);
-                        break;
-                    }
+                        figureLanded();
+                        break;*/
                 }
                 figure.move(0, -1);
+            }
+                //figure.move(0, -1);
 
                 //createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!
-            }
             updateGUI();
+
+        }
+            //updateGUI();
         }
     }
 
-}
+//}

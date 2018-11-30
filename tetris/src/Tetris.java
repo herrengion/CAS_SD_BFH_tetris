@@ -15,6 +15,7 @@ public class Tetris {
         GUI gui = new GUI(width,height);
         Game game = new Game(gui);
         game.start();
+
     }
     //other methods
     public int getHeight(){
