@@ -11,6 +11,7 @@ public class Field extends Object {
 
     private Block block;
     private List<Block> blocks = new ArrayList<>();
+    private Iterator<Block> iter = blocks.iterator();
 
     //Constructor
     public Field(int width, int height){
@@ -60,29 +61,43 @@ public class Field extends Object {
         blocks.clear();
     }
 
-    private boolean isRowFull(int y){
-        for(int i=0; i<blocks.size();i++){
+    /*private boolean isRowFull(int y){
+        int i=0;
+        while(iter.hasNext()){
+        //for(int i=0; i<blocks.size()-1;i++){
             if(blocks.get(i).y==y){
-                for(int j=0; (j<this.getWidth()||j<blocks.size()-1);j++){
+                for(int j=0; j<this.getWidth()-1;j++){
                     if(blocks.get(i+j).y!=y){
                         return false;
                     }
                 }
                 return true;
             }
+            i++;
+            iter.next();
         }
         return false;
+    }*/
+
+    private boolean isRowFull(int y){
+        int a = 0;
+        for(int i = 0; i <blocks.size();i++){
+            if(blocks.get(i).y==y){
+                a++;
+            }
+        }
+        return a== this.width;
     }
 
     private void removeRow(int y){
         int breakPoint=blocks.size()-1;
-        for(int i=blocks.size(); i>0;i--){
+        for(int i=blocks.size()-1; i>0;i--){
             if(blocks.get(i).y==y){
                 breakPoint = i;
                 blocks.remove(i);
             }
         }
-        //Move other blocks down
+        //Move above rows down
         for(int i = breakPoint; i<blocks.size();i++){
             blocks.get(i).y--;
         }
@@ -90,7 +105,7 @@ public class Field extends Object {
 
     public int removeFullRows(){
         int rowCount = 0;
-        for(int i=this.getHeight();i>0;i--){
+        for(int i=this.getHeight()-1;i>=0;i--){
             if(isRowFull(i)){
                 removeRow(i);
                 rowCount++;
