@@ -22,7 +22,7 @@ public class Game {
     //Fields
     Field field = new Field(Tetris.width, Tetris.height);
 
-    //private Boolean isFirstIteration = true;
+    private Boolean isGameOver;
 
     //Constructors
     public Game(GUI gui){
@@ -85,10 +85,12 @@ public class Game {
         field.addBlocks(blocks);
         //gui.drawBlocks(field.getBlocks());
         createFigure(field.getWidth()/2,field.getHeight(),3);
+        field.removeFullRows();
         updateGUI();
     }
 
     public void start(){
+        isGameOver = false;
         createFigure(5,18,3);
         figurecontroller = new FigureController();
         gui.setActionHandler(figurecontroller);
@@ -98,6 +100,7 @@ public class Game {
     public void stop(){
         //gui.clear();
         //gui.drawBlocks(previousBlocks);
+        isGameOver = true;
         updateGUI();
         gui.setActionHandler(null);
         field.removeAllBlocks();
@@ -105,7 +108,9 @@ public class Game {
     private void updateGUI(){
         gui.clear();
         gui.drawBlocks(previousBlocks);
-        gui.drawBlocks(blocks);
+        if(!isGameOver) {
+            gui.drawBlocks(blocks);
+        }
         previousBlocks = field.getBlocks();
         //atStart = false;
     }

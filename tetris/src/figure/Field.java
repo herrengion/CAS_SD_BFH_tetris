@@ -59,4 +59,43 @@ public class Field extends Object {
     public void removeAllBlocks(){
         blocks.clear();
     }
+
+    private boolean isRowFull(int y){
+        for(int i=0; i<blocks.size();i++){
+            if(blocks.get(i).y==y){
+                for(int j=0; (j<this.getWidth()||j<blocks.size()-1);j++){
+                    if(blocks.get(i+j).y!=y){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void removeRow(int y){
+        int breakPoint=blocks.size()-1;
+        for(int i=blocks.size(); i>0;i--){
+            if(blocks.get(i).y==y){
+                breakPoint = i;
+                blocks.remove(i);
+            }
+        }
+        //Move other blocks down
+        for(int i = breakPoint; i<blocks.size();i++){
+            blocks.get(i).y--;
+        }
+    }
+
+    public int removeFullRows(){
+        int rowCount = 0;
+        for(int i=this.getHeight();i>0;i--){
+            if(isRowFull(i)){
+                removeRow(i);
+                rowCount++;
+            }
+        }
+        return rowCount;
+    }
 }
