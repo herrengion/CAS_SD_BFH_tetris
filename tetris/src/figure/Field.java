@@ -99,7 +99,8 @@ public class Field extends Object {
         }
         //Move above rows down
         for(int i = breakPoint; i<blocks.size();i++){
-            blocks.get(i).y--;
+                blocks.get(i).y--;
+
         }
     }
 

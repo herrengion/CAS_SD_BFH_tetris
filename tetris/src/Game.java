@@ -6,6 +6,9 @@ import tetris.gui.Block;
 import java.lang.Math;
 import java.util.*;
 
+import static tetris.gui.Status.OVER;
+import static tetris.gui.Status.RUNNING;
+
 
 public class Game {
 
