@@ -14,7 +14,9 @@ public class Tetris {
         //System.out.println("Hello Tetris");
         GUI gui = new GUI(width,height);
         Game game = new Game(gui);
+        //Scoring scoring = new Scoring();
         game.start();
+
 
     }
     //other methods

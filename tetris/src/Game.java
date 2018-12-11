@@ -20,6 +20,7 @@ public class Game {
     private BaseFigure figure;
     private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
+    Scoring scoring = new Scoring();
     //private boolean atStart;
     private List<Block> previousBlocks = new ArrayList<>();
     //Fields
@@ -30,6 +31,8 @@ public class Game {
     //Constructors
     public Game(GUI gui){
         this.gui = gui;
+        int highscore=scoring.getHighscore();
+        gui.setHighScore(highscore);
     }
 
 
@@ -97,12 +100,15 @@ public class Game {
         createFigure(5,18,3);
         figurecontroller = new FigureController();
         gui.setActionHandler(figurecontroller);
+        //IMPORTANT: Thread.start() (<-implicit in Object/Class Thread) != Game.start() (<-implemented in Object/Class Game)
+        figurecontroller.start();
         //atStart = true;
         //figureLanded();
     }
     public void stop(){
         //gui.clear();
         //gui.drawBlocks(previousBlocks);
+        figurecontroller.interrupt();
         isGameOver = true;
         updateGUI();
         gui.setActionHandler(null);
@@ -126,11 +132,24 @@ public class Game {
 
 
     //Sub Classes
-    private class FigureController implements ActionHandler {
+    private class FigureController extends Thread implements ActionHandler {
         //Fields
         //Field field = new Field(Tetris.width, Tetris.height);
         //public void handleEvent(ActionEvent event) {
-
+        //Thread
+        @Override
+        public void run(){
+            while(!Thread.interrupted()){
+                try {
+                    moveDown();
+                    Thread.sleep(500);
+                }
+                catch (InterruptedException e){
+                    System.err.println("Error: "+ e);
+                    return;
+                }
+            }
+        }
         //check w/ @Override, if everything ok
         @Override
         public void moveDown(){

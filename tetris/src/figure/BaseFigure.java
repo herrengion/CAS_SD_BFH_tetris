@@ -27,13 +27,13 @@ public abstract class BaseFigure {
     public Block[] getBlocks(){
         return blocks;
     }
-    public void move(int dx, int dy){
+    public synchronized void move(int dx, int dy){
         for (Block block : blocks){//Korrektion
             block.x += dx;
             block.y += dy;
         }
     }
-    public void rotate(int d){
+    public synchronized void rotate(int d){
         //parameter d = +/- 1
         int cx = blocks[2].x;
         int cy = blocks[2].y;
