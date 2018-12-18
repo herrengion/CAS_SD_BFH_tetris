@@ -1,4 +1,6 @@
 import figure.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.BooleanPropertyBase;
 import tetris.gui.ActionHandler;
 import tetris.gui.GUI;
 import tetris.gui.ActionEvent;
@@ -22,6 +24,7 @@ public class Game {
     private FigureController figurecontroller;
     Scoring scoring = new Scoring();
     //private boolean atStart;
+    boolean isFigureAtBottom = false;
     private List<Block> previousBlocks = new ArrayList<>();
     //Fields
     Field field = new Field(Tetris.width, Tetris.height);
@@ -110,7 +113,7 @@ public class Game {
         //gui.drawBlocks(previousBlocks);
         figurecontroller.interrupt();
         isGameOver = true;
-        updateGUI();
+        //updateGUI();
         gui.setActionHandler(null);
         field.removeAllBlocks();
     }
@@ -137,12 +140,22 @@ public class Game {
         //Field field = new Field(Tetris.width, Tetris.height);
         //public void handleEvent(ActionEvent event) {
         //Thread
+        public void execute(Movement m1, Movement m2){
+            try{
+              m1.make(figure);
+              field.detectCollision(blocks);
+              updateGUI();
+            }
+            catch(CollisionException e){
+                m2.make(figure);
+            }
+        }
         @Override
         public void run(){
             while(!Thread.interrupted()){
                 try {
                     moveDown();
-                    Thread.sleep(500);
+                    Thread.sleep(500);//Add level functionality
                 }
                 catch (InterruptedException e){
                     System.err.println("Error: "+ e);
@@ -152,95 +165,48 @@ public class Game {
         }
         //check w/ @Override, if everything ok
         @Override
-        public void moveDown(){
-            figure.move(0,-1);
-            try {
-                field.detectCollision(blocks);
-            }
-            catch (CollisionException e){
-                System.err.println("Error: "+ e);
-                figure.move(0,1);
-                figureLanded();
-                /*if(e.isMovementVertical){
-                    figure.move(0,1);
-                    figureLanded();
-                }*/
-            }
-            updateGUI();
+        public synchronized void moveDown(){
+            execute(f->f.move(0, -1), f->{f.move(0,1); figureLanded();});
             System.out.println("moveleft() Position x: "+blocks[0].x+" y: "+blocks[0].y);
         }
         @Override
-        public void moveLeft(){
-            figure.move(-1,0);
-            try {
-                field.detectCollision(blocks);
-            }
-            catch (CollisionException e){
-                System.err.println("Error: "+ e);
-                figure.move(1,0);
-            }
-            updateGUI();
+        public synchronized void moveLeft(){
+            execute(f->f.move(-1, 0), f->f.move(1,0));
             System.out.println("moveleft() Position x: "+blocks[0].x+" y: "+blocks[0].y);
         }
         @Override
-        public void moveRight(){
-            figure.move(1,0);
-            try {
-                field.detectCollision(blocks);
-            }
-            catch (CollisionException e){
-                System.err.println("Error: "+ e);
-                figure.move(-1,0);
-            }
-            updateGUI();
+        public synchronized void moveRight(){
+            execute(f->f.move(1, 0), f->f.move(-1,0));
             System.out.println("moveRight() Position x: "+blocks[0].x+" y: "+blocks[0].y);
 
         }
         @Override
-        public void rotateLeft(){
-            figure.rotate(-1);
-            try {
-                field.detectCollision(blocks);
-            }
-            catch (CollisionException e){
-                System.err.println("Error: "+ e);
-                figure.rotate(1);
-            }
-            updateGUI();
+        public synchronized void rotateLeft(){
+            execute(f->f.rotate(-1), f->f.rotate(1));
         }
         @Override
-        public void rotateRight(){
-            figure.rotate(1);
-            try {
-                field.detectCollision(blocks);
-            }
-            catch (CollisionException e){
-                System.err.println("Error: "+ e);
-                figure.rotate(-1);
-            }
-            updateGUI();
+        public synchronized void rotateRight(){
+            execute(f->f.rotate(1), f->f.rotate(-1));
         }
 
-        public void drop(){
-            //boolean isFigureAtBottom = false;
+        public synchronized void drop(){
+            BooleanProperty isFigureAtBottom = new BooleanPropertyBase() {
+                @Override
+                public Object getBean() {
+                    return null;
+                }
+
+                @Override
+                public String getName() {
+                    return null;
+                }
+            };
+            isFigureAtBottom.setValue(false);
             //while(isFigureAtBottom == false) {
-            while(true){
-            try {
-                    field.detectCollision(blocks);
-                }
-                catch (CollisionException e) {
-                    System.err.println("Error: "+ e);
-                    figure.move(0, 1);
-                    figureLanded();
-                    break;
-                    /*System.err.println("Error: " + e);
-                    if(e.isMovementVertical){
-                        isFigureAtBottom = true;
-                        figure.move(0, 1);
-                        figureLanded();
-                        break;*/
-                }
-                figure.move(0, -1);
+            while(!isFigureAtBottom.getValue()){
+
+                execute(f->f.move(0, -1), f->{f.move(0,1); figureLanded(); isFigureAtBottom.setValue(true);});
+
             }
                 //figure.move(0, -1);
 
