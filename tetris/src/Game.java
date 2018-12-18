@@ -1,6 +1,9 @@
 import figure.*;
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.BooleanPropertyBase;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import tetris.gui.ActionHandler;
 import tetris.gui.GUI;
 import tetris.gui.ActionEvent;
@@ -22,7 +25,7 @@ public class Game {
     private BaseFigure figure;
     private BaseFigure previousFigure = new DummyFigure();
     private FigureController figurecontroller;
-    Scoring scoring = new Scoring();
+    private Scoring scoring = new Scoring();
     //private boolean atStart;
     boolean isFigureAtBottom = false;
     private List<Block> previousBlocks = new ArrayList<>();
@@ -190,7 +193,7 @@ public class Game {
         }
 
         public synchronized void drop(){
-            BooleanProperty isFigureAtBottom = new BooleanPropertyBase() {
+            BooleanProperty isFigureAtBottom = new BooleanPropertyBase(false) {
                 @Override
                 public Object getBean() {
                     return null;
@@ -201,17 +204,12 @@ public class Game {
                     return null;
                 }
             };
-            isFigureAtBottom.setValue(false);
-            //while(isFigureAtBottom == false) {
             while(!isFigureAtBottom.getValue()){
-
                 execute(f->f.move(0, -1), f->{f.move(0,1); figureLanded(); isFigureAtBottom.setValue(true);});
-
+                System.out.println("drop() Position x: "+blocks[0].x+" y: "+blocks[0].y);
             }
-                //figure.move(0, -1);
-
-                //createFigure(blocks[0].x+1,3, blocks[0].color); //TBD, temporary!!
-            updateGUI();
+            System.out.println("drop() completed: "+blocks[0].x+" y: "+blocks[0].y);
+            //updateGUI();
         }
             //updateGUI();
         }
